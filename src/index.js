@@ -1,16 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM loaded per DOMContentLoaded event") });
+  console.log("DOM loaded per DOMContentLoaded event") 
+  addTask();
+
+});
 
 
 let stack = document.getElementById("list")
-let stackList = document.createElement("div")
-stack.appendChild(stackList)
-stackList.setAttribute("class", "popOff")  
-let uL = document.createElement("ul")
-uL.setAttribute("class", "popOffList")
-stackList.appendChild(uL)  
-
-document.addEventListener("submit", (e) => {  
+  
+function addTask(){
+  document.addEventListener("submit", (e) => {  
   e.preventDefault(); 
   let post = document.getElementById("tasks")  
   let textToAdd = document.getElementById("new-task-description").value
@@ -23,31 +21,19 @@ document.addEventListener("submit", (e) => {
   post.appendChild(listItem)  
   nestedNode = document.getElementsByClassName(textToAdd)
   let arr = [...nestedNode]
-  arr[0].appendChild(button)
-     
-debugger
+  arr[0].appendChild(button) 
+    button.onclick = (e) => {
+      console.log("thats better", e)
+      post.remove()
+      console.log("BOOMSHAKALAKA")
+    }
+  });
+
  
 
-button.onclick = (e) => { 
-  console.log("thats better", e) 
-  post.remove()
-  console.log("BOOMSHAKALAKA")
-}
 
-function doIt(event) {   
-  event.preventDefault
-  console.log("my firing event", event)
-  console.log("i was clicked")
- let collection = document.querySelectorAll(".to-delete")  
-  for (let i = 0; i <  collection.length; i++){
-          collection[i].textContent === "Work out"
-  }
- debugger
- console.log(collection, collection[0]) 
- 
-}
 
-} ) 
+} 
 
 
 
